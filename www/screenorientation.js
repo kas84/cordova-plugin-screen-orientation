@@ -41,7 +41,7 @@ if (!window.OrientationLockType) {
 var orientationMask = 1;
 screenOrientation.setOrientation = function(orientation) {
     orientationMask = window.OrientationLockType[orientation];
-    cordova.exec(null, null, "CDVOrientation", "screenOrientation", [orientationMask, orientation]);
+    cordova.exec(function(){orientationchange()}, null, "CDVOrientation", "screenOrientation", [orientationMask, orientation]);
 };
 
 if (!screen.orientation) {
